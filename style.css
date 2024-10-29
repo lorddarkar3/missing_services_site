@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Orbitron&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+@font-face {
+  font-family: "SciFi";
+  src: url("https://cdn.glitch.com/2e013b97-2e0b-4c90-b87d-1559964bfd56%2Fzekton_rg.ttf");
+  /*The link to the CDN appears when you click on your file in assets > copy*/
+}
+
+:root {
+  --border: 1px solid black;
+  --border: solid 3px #BBBBBB;
+  --border-radius: 16px;
+  --color-bg: #121;
+  --color-text-main: #00FF00;
+  --color-primary: #FF00FF;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: "lato";
+  --header-font-family: "Major Mono Display", "Orbitron";
+  --barcode-font-family: "Libre Barcode 39 Extended";
+  --arcade-font-family: "Press Start 2P";
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+}
+
+/* Navigation grid */
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto 0;
+  padding: 1rem 0 0.75rem 0;
+  width: 100%;
+  flex-wrap: wrap;
+  border-top: 4px solid #121;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  background-image: radial-gradient(
+    ellipse 1000% 100% at 50% 90%,
+    transparent,
+    #121
+  );
+  background-position: center;
+  display: block;
+  /* shadow around the terminal */
+  box-shadow: inset 0 0 10em 1em rgba(0, 0, 0, 0.5);
+}
+
+a {
+  color: rgb(0,100,0);
+}
+
+a:visited {
+  color: rgb(0,100,0);
+}
+
+a:hover, a:active, a:focus {
+  color: rgb(0,90,0);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--header-font-family);
+}
+
+barcode {
+  font-family: var(--barcode-font-family);
+  text-align: center;
+  width: 100%;
+  color: rgb(59, 59, 59);
+  line-height: 1.65;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: var(--wrapper-height);
+  place-items: center;
+  margin: 0 1rem;
+}
+
+header h1 {
+  color: #00cc00;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 105%;
+  margin: 0 0 40px 0;
+}
+
+h2 {
+  color: 0f0;
+  text-align: center;
+  display: inline-block;
+  white-space: pre;
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+h3 {
+  color: #090;
+  text-align: center;
+}
+
+.figureLogo {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.figureLogo img,
+.figureLogo svg {
+  width: 100%;
+  height: auto;
+}
+
+.figureLogo a {
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+footer {
+  text-align: center;
+}
+
+footer small {
+  font-size: 11px;
+  color: rgb(59, 59, 59);
+  padding-top: 2px;
+  width: 100%;
+}
+
+scanboi {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+scanboi::after {
+  content: '';
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  top: calc(-60px);
+  left: 0;
+  -webkit-animation: scan 20s linear 0s infinite;
+  animation: scan 20s linear 0s infinite;
+  background: linear-gradient(
+    to bottom,
+    rgba(56, 112, 82, 0),
+    rgba(56, 112, 82, 0.1)
+  ) !important;
+}
+
+@-webkit-keyframes scan {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(2500%);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(2500%);
+  }
+}
