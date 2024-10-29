@@ -4,8 +4,7 @@
 
 @font-face {
   font-family: "SciFi";
-  src: url("https://cdn.glitch.com/2e013b97-2e0b-4c90-b87d-1559964bfd56%2Fzekton_rg.ttf");
-  /*The link to the CDN appears when you click on your file in assets > copy*/
+  src: url("zekton rg.otf");
 }
 
 :root {
