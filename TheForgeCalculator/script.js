@@ -188,7 +188,7 @@ function tryLoadImage(name) {
                 i++;
                 tryNext();
             };
-            img.src = base + exts[i];
+            img.src = url('images/' + base + exts[i]);
         }
         tryNext();
     });
@@ -536,3 +536,4 @@ calculateBtn.addEventListener("click", () => {
     })();
 
 });
+
