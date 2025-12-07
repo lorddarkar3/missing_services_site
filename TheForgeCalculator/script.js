@@ -173,7 +173,7 @@ function toggleItemSelection(div, name) {
 const imageCache = new Map();
 
 function tryLoadImage(name) {
-    const base = 'Images/' + name;
+    const base = 'images/' + name;
     const exts = ['.png', '.jpg', '.jpeg', '.webp'];
     let i = 0;
     return new Promise((resolve) => {
@@ -534,4 +534,5 @@ calculateBtn.addEventListener("click", () => {
         await calculate();
         calculateBtn.disabled = false;
     })();
+
 });
