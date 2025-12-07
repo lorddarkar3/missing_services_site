@@ -1,0 +1,14 @@
+body { font-family: system-ui, Arial, sans-serif; margin: 12px; }
+#controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+#itemsGrid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; justify-content: center; }
+.item { width: 100px; text-align:center; user-select:none; }
+.item canvas { display:block; margin:0 auto; border:1px solid #333; background:#222; }
+.item input[type="number"] { width:56px; margin-top:4px; }
+.selected-item { outline: 4px solid gold; border-radius: 6px; }
+#progressContainer { margin:6px 0; }
+#resultsContainer { display:flex; flex-direction:column; gap:6px; max-height:60vh; overflow:auto; padding-right:6px; }
+.result-row { display:flex; align-items:center; gap:12px; padding:6px; border-radius:6px; background:#fafafa; border:1px solid #ddd; }
+.result-items { width: calc((100px + 8px) * 4); /* 4 slots */ display:flex; gap:8px; align-items:center; justify-content:flex-start; }
+.result-slot { width:100px; height:100px; flex:0 0 100px; }
+.result-mult { font-weight:700; font-size:1.1rem; min-width:102px; text-align:center; }
+#statusLine { font-size:0.9rem; color:#666; margin-top:6px }

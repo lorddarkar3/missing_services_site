@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <title>Forge Calculator</title>
+      <meta
+         name="description"
+         content="Missing Services, we are everything."
+         />
+      <meta property="og:title" content="Missing Services" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="https://www.missingservices.com/" />
+      <meta
+         property="og:description"
+         content="Missing Services, we are everything."
+         />
+      <meta
+         property="og:image"
+         content="images/999full.png"
+         />
+      <meta content="#000001" data-react-helmet="true" name="theme-color" />
+      <link rel="icon" 
+         type="image/png" 
+         href="images/logo.webp"
+         />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <h2>Forge Calculator</h2>
+      <!-- Items grid -->
+      <div id="itemsGrid" aria-label="Items grid"></div>
+      <!-- Controls -->
+      <div id="controls">
+         <label>Desired Materials:
+            <input id="desiredInput" type="number" min="1" value="10" style="width:80px" />
+         </label>
+         <button id="calculateBtn">Calculate</button>
+         <label style="margin-left:8px">Total Results:
+            <input id="totalResultsInput" type="number" min="1" value="50" style="width:80px" />
+         </label>
+         <div id="progressContainer" style="flex:1 1 300px; min-width:220px;">
+            <progress id="progressBar" value="0" max="1" style="width:100%"></progress>
+         </div>
+      </div>
+      <!-- Results -->
+      <div id="statusLine"></div>
+      <div id="resultsContainer" aria-label="Results"></div>
+      <script src="script.js"></script>
+   </body>
+</html>
