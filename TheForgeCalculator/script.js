@@ -173,23 +173,28 @@ function toggleItemSelection(div, name) {
 const imageCache = new Map();
 
 function tryLoadImage(name) {
-    const base = 'images/' + name;
+    const basePath = new URL('images/', window.location.href); 
     const exts = ['.png', '.jpg', '.jpeg', '.webp'];
     let i = 0;
+
     return new Promise((resolve) => {
         function tryNext() {
             if (i >= exts.length) {
                 resolve(null);
                 return;
             }
+
             const img = new Image();
             img.onload = () => resolve(img);
             img.onerror = () => {
                 i++;
                 tryNext();
             };
-            img.src = url('images/' + base + exts[i]);
+
+            // Construct full URL safely
+            img.src = new URL(name + exts[i], basePath).href;
         }
+
         tryNext();
     });
 }
@@ -536,4 +541,5 @@ calculateBtn.addEventListener("click", () => {
     })();
 
 });
+
 
