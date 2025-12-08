@@ -347,6 +347,25 @@ function generateCountsAsync(maxCounts, target, onYield, batchSize = 500) {
     });
 }
 
+function useMaterials(combo, counts) {
+    for (let i = 0; i < combo.length; i++) {
+        const matName = combo[i].name;
+        const used = counts[i];
+
+        const div = [...itemsGrid.children].find(d => d.dataset.name === matName);
+        if (!div) continue;
+
+        const input = div.querySelector("input");
+        const current = parseInt(input.value) || 0;
+        const newVal = Math.max(0, current - used);
+        input.value = newVal;
+    }
+
+    // Clear results
+    resultsContainer.innerHTML = "";
+    statusLine.textContent = "Materials deducted.";
+}
+
 /* =============================
    Main calculation
    ============================= */
@@ -520,6 +539,23 @@ async function calculate() {
 
         row.appendChild(itemsFrame);
         row.appendChild(mult);
+
+        // --- Add "Use" button ---
+        const useBtn = document.createElement("button");
+        useBtn.textContent = "Use";
+        useBtn.className = "use-btn";
+        useBtn.style.marginLeft = "12px";
+        useBtn.style.padding = "6px 10px";
+        useBtn.style.fontSize = "14px";
+        useBtn.style.cursor = "pointer";
+
+        useBtn.addEventListener("click", () => {
+            useMaterials(r.combo, r.counts);
+        });
+
+        row.appendChild(useBtn);
+        // ---------------------------------
+
         resultsContainer.appendChild(row);
 
         await new Promise(r => setTimeout(r, 0));
@@ -539,7 +575,4 @@ calculateBtn.addEventListener("click", () => {
         await calculate();
         calculateBtn.disabled = false;
     })();
-
 });
-
-
